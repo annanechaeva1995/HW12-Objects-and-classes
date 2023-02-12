@@ -6,24 +6,26 @@ public class Main {
     public static void main(String[] args) {
         printSeparator();
         Author orwell = new Author("Джордж", "Оруэлл");
-        System.out.println("Author = " + orwell.getName() + " " + orwell.getLastName());
-
-        Book nineteenEightyFour = new Book("1984", new Author(orwell.getName(), orwell.getLastName()),
+        Book nineteenEightyFour = new Book("1984", orwell,
                 1949);
         nineteenEightyFour.setPublicationYear(2022);
-        System.out.println("nineteenEightyFour.getTitle() = " + nineteenEightyFour.getTitle());
-        System.out.println("nineteenEightyFour.getAuthor() = " + nineteenEightyFour.getAuthor());
-        System.out.println("nineteenEightyFour.getPublicationYear() = " + nineteenEightyFour.getPublicationYear());
+        System.out.println(nineteenEightyFour);
         printSeparator();
 
         Author dostoevsky = new Author("Фёдор", "Достоевский");
-        System.out.println("Author = " + dostoevsky.getName() + " " + dostoevsky.getLastName());
-
-        Book brothersKaramazov = new Book("Братья Карамазовы", new Author(dostoevsky.getName(),
-                dostoevsky.getLastName()), 1982);
-        System.out.println("brothersKaramazov.getTitle() = " + brothersKaramazov.getTitle());
-        System.out.println("brothersKaramazov.getAuthor() = " + brothersKaramazov.getAuthor());
-        System.out.println("brothersKaramazov.getPublicationYear() = " + brothersKaramazov.getPublicationYear());
+        Book brothersKaramazov = new Book("Братья Карамазовы", dostoevsky, 1982);
+        System.out.println(brothersKaramazov);
         printSeparator();
+
+        if (dostoevsky.equals(orwell)) {
+            System.out.println("Автор один и тот же.");
+        } else {
+            System.out.println("Авторы разные.");
+        }
+        if (nineteenEightyFour.equals(brothersKaramazov)) {
+            System.out.println("Книги одинаковые.");
+        } else {
+            System.out.println("Книги разные.");
+        }
     }
 }
